@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Train Scheduler</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+</head>
+<body>
+	
+	<!-- Jumbotron -->
+	<div class="jumbotron jumbotron-fluid p-2 customColors">
+	  <div class="container">
+	    <h1 class="display-4 text-center">Train Scheduler</h1>
+	    <p class="lead text-center">Your <span class="text-dark">personalized</span> train scheduler</p>
+	  </div>
+	</div>
+
+<div class="container-fluid">
+	<!-- Input form -->
+	<div class="card">
+	  <h5 class="card-header customColors">Add Train</h5>
+	  <div class="card-body">
+	    <form>
+			  <div class="form-row">
+			    <div class="col">
+			      <input type="text" class="form-control" id="train-name-input" placeholder="Train Name">
+			    </div>
+			    <div class="col">
+			      <input type="text" class="form-control" id="destination-input" placeholder="Destination">
+			    </div>
+			    <div class="col">
+			      <input type="text" class="form-control" id="first-train-input" placeholder="First Train Time (HH:mm - Military time)">
+			    </div>
+			    <div class="col-2">
+			      <input type="text" class="form-control" id="frequency-input" placeholder="Frequency (min)">
+			    </div>
+			    <div class="col-auto">
+			      <button id="addTrainButton" type="submit" class="btn mb-2 customColors">Add</button>
+			    </div>
+			  </div>
+			</form>
+	  </div>
+	</div>
+</div>
+	
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
