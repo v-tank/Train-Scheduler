@@ -1,0 +1,23 @@
+h1{
+	font-family: "Oswald", serif;
+}
+
+p, form {
+	font-family: "Roboto", sans-serif;	
+}
+
+.customColors {
+	background-color: #6fb565;
+	color: #fff;
+	border: none;
+}
+
+/* Button hover property */
+button:hover {
+	background-color: rgba(33, 151, 101, 1);
+}
+
+/* Formats the placeholder text color */
+input[type=text]::placeholder {
+	color: rgba(102, 102, 102, 0.5);
+}
