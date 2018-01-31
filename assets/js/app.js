@@ -10,6 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+console.log(moment());
 
 database.ref().on("child_added", function(snapshot) {
 	console.log(snapshot.val());
