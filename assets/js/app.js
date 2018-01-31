@@ -9,6 +9,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
+database.ref().on("value", function(snapshot) {
+	console.log(snapshot.val());
+});
+
+
 $("#addTrainButton").on("click", function(event) {
 	event.preventDefault();
 
@@ -19,4 +26,15 @@ $("#addTrainButton").on("click", function(event) {
 	var frequency = $("#frequency-input").val().trim();
 
 	console.log(trainName, destination, firstTrainTime, frequency);
+
+	// object to push to database
+	var trainObject = {
+		name: trainName,
+		destination: destination,
+		firstTrainTime: firstTrainTime,
+		frequency: frequency
+	}
+
+	firebase.database().ref().push(trainObject);
+
 });
