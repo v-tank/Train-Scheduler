@@ -11,8 +11,19 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
 	console.log(snapshot.val());
+	// console.log(snapshot.val().name);
+
+	var retrievedName = snapshot.val().name;
+	var retrievedDestination = snapshot.val().destination;
+	var retrievedTrainTime = snapshot.val().firstTrainTime;
+	var retrievedFrequency = snapshot.val().frequency;
+	var minutesAway = 5;
+	// console.log(retrievedName);
+	var tableRow = $("<tr><td>" + retrievedName + "</td><td>" + retrievedDestination + "</td><td>" + retrievedFrequency + "</td><td>" + retrievedTrainTime + "</td><td>" + minutesAway + "</td></tr>");
+
+	$("#train-table").append(tableRow);
 });
 
 
@@ -35,6 +46,17 @@ $("#addTrainButton").on("click", function(event) {
 		frequency: frequency
 	}
 
-	firebase.database().ref().push(trainObject);
+	database.ref().push(trainObject);
+
+	// firebase.database().ref().push(trainObject);
+
+	// Alerts the user once train has been added to the database
+	alert("Train added!");
+
+	// Clears the input fields
+	$("#train-name-input").val("");
+	$("#destination-input").val("");
+	$("#first-train-input").val("");
+	$("#frequency-input").val("");
 
 });
