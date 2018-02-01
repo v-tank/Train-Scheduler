@@ -21,3 +21,7 @@ button:hover {
 input[type=text]::placeholder {
 	color: rgba(102, 102, 102, 0.5);
 }
+
+.table-hover tbody tr:hover {
+	background-color: rgba(111, 181, 101, 0.15); 
+}
