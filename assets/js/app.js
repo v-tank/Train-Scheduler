@@ -56,7 +56,7 @@ $("#addTrainButton").on("click", function(event) {
 	var firstTrainTime = $("#first-train-input").val().trim();
 	var frequency = $("#frequency-input").val().trim();
 
-	if ((trainName !== "") && (destination !== "") && (frequency !== "") && (moment(firstTrainTime).isValid())) {
+	if ((trainName !== "") && (destination !== "") && (frequency !== "") && (moment(firstTrainTime, 'HH:mm', true).isValid())) {
 	// console.log(trainName, destination, firstTrainTime, frequency);
 
 		// object to push to database
