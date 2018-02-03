@@ -56,26 +56,32 @@ $("#addTrainButton").on("click", function(event) {
 	var firstTrainTime = $("#first-train-input").val().trim();
 	var frequency = $("#frequency-input").val().trim();
 
+	if ((trainName !== "") && (destination !== "") && (frequency !== "") && (moment(firstTrainTime).isValid())) {
 	// console.log(trainName, destination, firstTrainTime, frequency);
 
-	// object to push to database
-	var trainObject = {
-		name: trainName,
-		destination: destination,
-		firstTrainTime: firstTrainTime,
-		frequency: frequency
+		// object to push to database
+		var trainObject = {
+			name: trainName,
+			destination: destination,
+			firstTrainTime: firstTrainTime,
+			frequency: frequency
+		}
+
+		// pushes the created object onto the database at the root level
+		database.ref().push(trainObject);
+
+		// Alerts the user once train has been added to the database
+		alert("Train added!");
+
+		// Clears the input fields
+		$("#train-name-input").val("");
+		$("#destination-input").val("");
+		$("#first-train-input").val("");
+		$("#frequency-input").val("");
+
 	}
-
-	// pushes the created object onto the database at the root level
-	database.ref().push(trainObject);
-
-	// Alerts the user once train has been added to the database
-	alert("Train added!");
-
-	// Clears the input fields
-	$("#train-name-input").val("");
-	$("#destination-input").val("");
-	$("#first-train-input").val("");
-	$("#frequency-input").val("");
+	else {
+		alert("Please enter the values in the correct format!");
+	}
 
 });
