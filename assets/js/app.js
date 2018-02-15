@@ -23,7 +23,7 @@ database.ref().on("child_added", function(snapshot) {
 	var retrievedFrequency = snapshot.val().frequency;
 
 	// format the initial time into HH:mm
-	var timeToSubtract = moment(retrievedTrainTime, "HH:mm");
+	var timeToSubtract = moment(retrievedTrainTime, "HH:mm").subtract(1, "years");
 
 	// subtract the initial time from the current time and return the answer in minutes
 	var difference = moment().diff(timeToSubtract, "minutes");
